@@ -1,0 +1,344 @@
+version 6.0
+if &cp | set nocp | endif
+let s:cpo_save=&cpo
+set cpo&vim
+inoremap <C-S-Right> ghe
+inoremap <C-S-Left> ghb
+inoremap <silent> <Plug>ragtagXmlV ="&#".getchar().";"
+inoremap <silent> <S-Tab> =snipMate#BackwardsSnippet()
+inoremap <C-Tab> 	
+inoremap <silent> <C-Down> gj
+inoremap <silent> <C-Up> gk
+imap <silent> <S-F4> :Bclose!
+imap <silent> <C-F4> :Bclose
+imap <silent> <F6> :set nolist!
+imap <silent> <F5> :set nowrap!
+imap <silent> <F4> :bn
+imap <silent> <F3> :bp
+imap <silent> <F2> :BufExplorer
+imap <silent> <F1> :NERDTreeFind
+inoremap <silent> <Home> :call Home()
+imap <kHome> <Home>
+map! <D-v> *
+noremap! <D-Left> <Home>
+noremap! <M-Left> <C-Left>
+noremap! <D-Right> <End>
+noremap! <M-Right> <C-Right>
+inoremap <D-Up> <C-Home>
+imap <M-Up> {
+inoremap <D-Down> <C-End>
+imap <M-Down> }
+imap <M-BS> 
+imap <D-BS> 
+vnoremap  "+y
+noremap  h
+xnoremap 	 s:let g:snipmate_content_visual=getreg( 1 )
+snoremap <silent> 	 i<Right>=snipMate#TriggerSnippet()
+nnoremap 	 w
+noremap <NL> j
+noremap  k
+noremap  l
+nmap  :enew
+vmap  "-cx\\paste\\"_x
+vnoremap  "+x
+nmap  :Bclose
+snoremap % b<BS>%
+snoremap ' b<BS>'
+nnoremap , /N
+vmap , y/"/
+omap , y/"/
+vnoremap / /\v
+nnoremap / /\v
+vnoremap < <gv
+vnoremap > >gv
+inoremap ï o
+map J gJ
+xmap S <Plug>VSurround
+snoremap U b<BS>U
+nmap [xx <Plug>unimpairedLineXmlEncode
+xmap [x <Plug>unimpairedXmlEncode
+nmap [x <Plug>unimpairedXmlEncode
+nmap [uu <Plug>unimpairedLineUrlEncode
+xmap [u <Plug>unimpairedUrlEncode
+nmap [u <Plug>unimpairedUrlEncode
+nmap [yy <Plug>unimpairedLineStringEncode
+xmap [y <Plug>unimpairedStringEncode
+nmap [y <Plug>unimpairedStringEncode
+xmap [e <Plug>unimpairedMoveUp
+nmap [e <Plug>unimpairedMoveUp
+nmap [  <Plug>unimpairedBlankUp
+omap [n <Plug>unimpairedContextPrevious
+nmap [n <Plug>unimpairedContextPrevious
+nmap [o <Plug>unimpairedOPrevious
+nmap <silent> [T <Plug>unimpairedTFirst
+nmap <silent> [t <Plug>unimpairedTPrevious
+nmap <silent> [Q <Plug>unimpairedQFirst
+nmap <silent> [q <Plug>unimpairedQPrevious
+nmap <silent> [L <Plug>unimpairedLFirst
+nmap <silent> [l <Plug>unimpairedLPrevious
+nmap <silent> [B <Plug>unimpairedBFirst
+nmap <silent> [b <Plug>unimpairedBPrevious
+nmap <silent> [A <Plug>unimpairedAFirst
+nmap <silent> [a <Plug>unimpairedAPrevious
+nmap \\paste\\ "=@*.'xy'gPFx"_2x:echo
+snoremap \ b<BS>\
+nmap \\\ <Plug>CommentaryLine
+nmap \\ <Plug>Commentary
+xmap \\ <Plug>Commentary
+nmap \ca <Plug>NERDCommenterAltDelims
+xmap \cu <Plug>NERDCommenterUncomment
+nmap \cu <Plug>NERDCommenterUncomment
+xmap \cb <Plug>NERDCommenterAlignBoth
+nmap \cb <Plug>NERDCommenterAlignBoth
+xmap \cl <Plug>NERDCommenterAlignLeft
+nmap \cl <Plug>NERDCommenterAlignLeft
+nmap \cA <Plug>NERDCommenterAppend
+xmap \cy <Plug>NERDCommenterYank
+nmap \cy <Plug>NERDCommenterYank
+xmap \cs <Plug>NERDCommenterSexy
+nmap \cs <Plug>NERDCommenterSexy
+xmap \ci <Plug>NERDCommenterInvert
+nmap \ci <Plug>NERDCommenterInvert
+nmap \c$ <Plug>NERDCommenterToEOL
+xmap \cn <Plug>NERDCommenterNested
+nmap \cn <Plug>NERDCommenterNested
+xmap \cm <Plug>NERDCommenterMinimal
+nmap \cm <Plug>NERDCommenterMinimal
+vmap \c  :call NERDComment(1, 'toggle')
+nmap \c  <Plug>NERDCommenterToggle
+xmap \cc <Plug>NERDCommenterComment
+nmap \cc <Plug>NERDCommenterComment
+map \mq <Plug>MBEMarkCurrent
+map \mbt <Plug>TMiniBufExplorer
+map \mbu <Plug>UMiniBufExplorer
+map \mbc <Plug>CMiniBufExplorer
+map \mbe <Plug>MiniBufExplorer
+nmap <silent> \b :CommandTBuffer
+nmap <silent> \t :CommandT
+nnoremap <silent> \bd :Bclose
+nnoremap \r :%s//<Left>
+map \fm :set ff=mac
+map \fd :set ff=dos
+map \fu :set ff=unix
+nnoremap \  :noh:call clearmatches()
+map <silent> \tl :TlistToggle
+nnoremap \h :split
+nnoremap \s vl
+nnoremap \	 w
+nnoremap \d Yp
+map \e :e ~/.vim/vimrc
+nnoremap <silent> \m :MRU
+noremap \mm mmHmt:%s///ge'tzt'm
+nnoremap <silent> \RR :bufdo call IndentFile():let _s=@/|:%s/\s\+$//e|:let @/=_s|:nohl
+nnoremap <silent> \R :call IndentFile():let _s=@/|:%s/\s\+$//e|:let @/=_s|:nohl
+nnoremap <silent> \WW :bufdo let _s=@/|:%s/\s\+$//e|:let @/=_s|:nohl
+nnoremap <silent> \W :let _s=@/|:%s/\s\+$//e|:let @/=_s|:nohl
+map \brn mR:call BuffersRenameVar("", "nvname")
+nmap ]xx <Plug>unimpairedLineXmlDecode
+xmap ]x <Plug>unimpairedXmlDecode
+nmap ]x <Plug>unimpairedXmlDecode
+nmap ]uu <Plug>unimpairedLineUrlDecode
+xmap ]u <Plug>unimpairedUrlDecode
+nmap ]u <Plug>unimpairedUrlDecode
+nmap ]yy <Plug>unimpairedLineStringDecode
+xmap ]y <Plug>unimpairedStringDecode
+nmap ]y <Plug>unimpairedStringDecode
+xmap ]e <Plug>unimpairedMoveDown
+nmap ]e <Plug>unimpairedMoveDown
+nmap ]  <Plug>unimpairedBlankDown
+omap ]n <Plug>unimpairedContextNext
+nmap ]n <Plug>unimpairedContextNext
+nmap ]o <Plug>unimpairedONext
+nmap <silent> ]T <Plug>unimpairedTLast
+nmap <silent> ]t <Plug>unimpairedTNext
+nmap <silent> ]Q <Plug>unimpairedQLast
+nmap <silent> ]q <Plug>unimpairedQNext
+nmap <silent> ]L <Plug>unimpairedLLast
+nmap <silent> ]l <Plug>unimpairedLNext
+nmap <silent> ]B <Plug>unimpairedBLast
+nmap <silent> ]b <Plug>unimpairedBNext
+nmap <silent> ]A <Plug>unimpairedALast
+nmap <silent> ]a <Plug>unimpairedANext
+snoremap ^ b<BS>^
+nnoremap _js :set ft=javascript
+nnoremap _py :set ft=python
+nnoremap _md :set ft=markdown
+snoremap ` b<BS>`
+map <silent> bp :PreviousBookmark
+map <silent> bn :NextBookmark
+map <silent> bb :ToggleBookmark
+nmap cs <Plug>Csurround
+nmap cr <Plug>Coerce
+nmap ds <Plug>Dsurround
+xmap gS <Plug>VgSurround
+nmap gx <Plug>NetrwBrowseX
+xnoremap <silent> s :echoerr 'surround.vim: Visual mode s has been removed in favor of S'
+nmap ySS <Plug>YSsurround
+nmap ySs <Plug>YSsurround
+nmap yss <Plug>Yssurround
+nmap yS <Plug>YSurround
+nmap ys <Plug>Ysurround
+nnoremap <C-S-Right> ghe
+vnoremap <C-S-Right> e
+nnoremap <C-Right> e
+nnoremap <C-S-Left> ghb
+vnoremap <C-S-Left> b
+nnoremap <C-Left> b
+vnoremap <C-Insert> "+y
+vnoremap <S-Del> "+x
+snoremap <Left> bi
+snoremap <Right> a
+snoremap <BS> b<BS>
+snoremap <silent> <S-Tab> i<Right>=snipMate#BackwardsSnippet()
+xnoremap <silent> <Plug>unimpairedMoveDown :exe 'normal! m`'|exe '''<,''>move''>+'.v:count1``
+xnoremap <silent> <Plug>unimpairedMoveUp :exe 'normal! m`'|exe '''<,''>move--'.v:count1``
+nmap <silent> <Plug>unimpairedTLast :exe "tlast ".(v:count ? v:count : "")
+nmap <silent> <Plug>unimpairedTFirst :exe "tfirst ".(v:count ? v:count : "")
+nmap <silent> <Plug>unimpairedTNext :exe "tnext ".(v:count ? v:count : "")
+nmap <silent> <Plug>unimpairedTPrevious :exe "tprevious ".(v:count ? v:count : "")
+nmap <silent> <Plug>unimpairedQLast :exe "clast ".(v:count ? v:count : "")
+nmap <silent> <Plug>unimpairedQFirst :exe "cfirst ".(v:count ? v:count : "")
+nmap <silent> <Plug>unimpairedQNext :exe "cnext ".(v:count ? v:count : "")
+nmap <silent> <Plug>unimpairedQPrevious :exe "cprevious ".(v:count ? v:count : "")
+nmap <silent> <Plug>unimpairedLLast :exe "llast ".(v:count ? v:count : "")
+nmap <silent> <Plug>unimpairedLFirst :exe "lfirst ".(v:count ? v:count : "")
+nmap <silent> <Plug>unimpairedLNext :exe "lnext ".(v:count ? v:count : "")
+nmap <silent> <Plug>unimpairedLPrevious :exe "lprevious ".(v:count ? v:count : "")
+nmap <silent> <Plug>unimpairedBLast :exe "blast ".(v:count ? v:count : "")
+nmap <silent> <Plug>unimpairedBFirst :exe "bfirst ".(v:count ? v:count : "")
+nmap <silent> <Plug>unimpairedBNext :exe "bnext ".(v:count ? v:count : "")
+nmap <silent> <Plug>unimpairedBPrevious :exe "bprevious ".(v:count ? v:count : "")
+nmap <silent> <Plug>unimpairedALast :exe "last ".(v:count ? v:count : "")
+nmap <silent> <Plug>unimpairedAFirst :exe "first ".(v:count ? v:count : "")
+nmap <silent> <Plug>unimpairedANext :exe "next ".(v:count ? v:count : "")
+nmap <silent> <Plug>unimpairedAPrevious :exe "previous ".(v:count ? v:count : "")
+xnoremap <silent> <Plug>NERDCommenterUncomment :call NERDComment("x", "Uncomment")
+nnoremap <silent> <Plug>NERDCommenterUncomment :call NERDComment("n", "Uncomment")
+xnoremap <silent> <Plug>NERDCommenterAlignBoth :call NERDComment("x", "AlignBoth")
+nnoremap <silent> <Plug>NERDCommenterAlignBoth :call NERDComment("n", "AlignBoth")
+xnoremap <silent> <Plug>NERDCommenterAlignLeft :call NERDComment("x", "AlignLeft")
+nnoremap <silent> <Plug>NERDCommenterAlignLeft :call NERDComment("n", "AlignLeft")
+nnoremap <silent> <Plug>NERDCommenterAppend :call NERDComment("n", "Append")
+xnoremap <silent> <Plug>NERDCommenterYank :call NERDComment("x", "Yank")
+nnoremap <silent> <Plug>NERDCommenterYank :call NERDComment("n", "Yank")
+xnoremap <silent> <Plug>NERDCommenterSexy :call NERDComment("x", "Sexy")
+nnoremap <silent> <Plug>NERDCommenterSexy :call NERDComment("n", "Sexy")
+xnoremap <silent> <Plug>NERDCommenterInvert :call NERDComment("x", "Invert")
+nnoremap <silent> <Plug>NERDCommenterInvert :call NERDComment("n", "Invert")
+nnoremap <silent> <Plug>NERDCommenterToEOL :call NERDComment("n", "ToEOL")
+xnoremap <silent> <Plug>NERDCommenterNested :call NERDComment("x", "Nested")
+nnoremap <silent> <Plug>NERDCommenterNested :call NERDComment("n", "Nested")
+xnoremap <silent> <Plug>NERDCommenterMinimal :call NERDComment("x", "Minimal")
+nnoremap <silent> <Plug>NERDCommenterMinimal :call NERDComment("n", "Minimal")
+xnoremap <silent> <Plug>NERDCommenterToggle :call NERDComment("x", "Toggle")
+nnoremap <silent> <Plug>NERDCommenterToggle :call NERDComment("n", "Toggle")
+xnoremap <silent> <Plug>NERDCommenterComment :call NERDComment("x", "Comment")
+nnoremap <silent> <Plug>NERDCommenterComment :call NERDComment("n", "Comment")
+nnoremap <silent> <Down> gj
+nnoremap <silent> <Up> gk
+vmap <C-Down> ]egv
+vmap <C-Up> [egv
+nmap <C-Down> ]e
+nmap <C-Up> [e
+nmap <silent> <S-F4> :Bclose!
+nmap <silent> <C-F4> :Bclose
+map <silent> <F11> :call ToggleFullScreen()
+map <silent> <F6> :set nolist!
+map <silent> <F5> :set nowrap!
+map <silent> <F4> :bn
+map <silent> <F2> :BufExplorer
+nmap <silent> <F1> :NERDTreeFind
+vmap <C-CR> %
+nmap <C-CR> %
+nnoremap <silent> <Home> :call Home()
+nmap <kHome> <Home>
+map <S-F3> :!/Applications/CoronaSDK/simulator -project %:p -skin iPad
+map <silent> <F3> :bp
+nmap <D-v> "*P
+vmap <D-v> "-d"*P
+vmap <D-c> "*y
+vmap <D-x> "*d
+nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetrwBrowseX(expand("<cWORD>"),0)
+noremap <D-Left> <Home>
+noremap <M-Left> <C-Left>
+noremap <D-Right> <End>
+noremap <M-Right> <C-Right>
+noremap <D-Up> <C-Home>
+map <M-Up> {
+noremap <D-Down> <C-End>
+map <M-Down> }
+xmap <BS> "-d
+imap S <Plug>ISurround
+imap s <Plug>Isurround
+inoremap <silent> 	 u=snipMate#TriggerSnippet()
+imap  <Plug>SuperTabForward
+imap  <Plug>SuperTabBackward
+inoremap <silent> 	 =snipMate#ShowAvailableSnips()
+imap  <Plug>Isurround
+imap  x\\paste\\"_s
+nnoremap ÷ c
+inoremap \fn =expand("%:t:r")
+inoremap \	 	
+let &cpo=s:cpo_save
+unlet s:cpo_save
+set autochdir
+set autoindent
+set background=dark
+set backspace=indent,eol,start
+set browsedir=buffer
+set complete=.,w,b,u,t,i,k
+set diffexpr=MyDiff()
+set noequalalways
+set expandtab
+set fileencodings=utf-8,latin1
+set fileformats=unix,dos,mac
+set formatoptions=croql
+set gdefault
+set guifont=Anonymous\ Pro:h26
+set guioptions=egmr
+set guitablabel=%M%t
+set helplang=en
+set hidden
+set history=500
+set hlsearch
+set ignorecase
+set incsearch
+set isident=@,48-57,_,192-255,$
+set iskeyword=@,48-57,_,192-255,-,:
+set nojoinspaces
+set langmenu=none
+set laststatus=2
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+set macmeta
+set mouse=a
+set omnifunc=syntaxcomplete#Complete
+set printexpr=system('open\ -a\ Preview\ '.v:fname_in)\ +\ v:shell_error
+set ruler
+set runtimepath=~/.vim,~/.vim/bundle/ack,~/.vim/bundle/Arduino-syntax,~/.vim/bundle/bclose,~/.vim/bundle/bufexplorer,~/.vim/bundle/color-ir_black,~/.vim/bundle/color-molokai,~/.vim/bundle/color-mustang,~/.vim/bundle/color-solarized,~/.vim/bundle/Command-T,~/.vim/bundle/highlights,~/.vim/bundle/jekyll,~/.vim/bundle/minibufexpl,~/.vim/bundle/mru,~/.vim/bundle/mswin,~/.vim/bundle/nerdcommenter,~/.vim/bundle/nerdtree,~/.vim/bundle/python,~/.vim/bundle/snipmate-snippets,~/.vim/bundle/supertab,~/.vim/bundle/taglist-plus,~/.vim/bundle/tlib,~/.vim/bundle/vim-abolish,~/.vim/bundle/vim-addon-mw-utils,~/.vim/bundle/vim-autoclose,~/.vim/bundle/vim-coffee-script,~/.vim/bundle/vim-commentary,~/.vim/bundle/vim-cucumber,~/.vim/bundle/vim-endwise,~/.vim/bundle/vim-fugitive,~/.vim/bundle/vim-haml,~/.vim/bundle/vim-jade,~/.vim/bundle/vim-javascript,~/.vim/bundle/vim-less,~/.vim/bundle/vim-markdown,~/.vim/bundle/vim-ragtag,~/.vim/bundle/vim-rails,~/.vim/bundle/vim-repeat,~/.vim/bundle/vim-ruby,~/.vim/bundle/vim-snipmate,~/.vim/bundle/vim-surro
+set scrolloff=3
+set sessionoptions=buffers,curdir,folds,help,resize,winpos,winsize,tabpages,unix,slash,localoptions
+set shiftwidth=4
+set showbreak=...
+set showcmd
+set sidescroll=1
+set smartcase
+set smartindent
+set smarttab
+set softtabstop=4
+set nostartofline
+set statusline=%f\ %m\ %r%{fugitive#statusline()}%=\ [%{&encoding}\ %{&fileformat}\ %{strlen(&ft)?&ft:'none'}]\ %{WordCount()}\ words\ \ %(%c:%l/%L%)\ (%p%%)
+set noswapfile
+set tabstop=4
+set termencoding=utf-8
+set undodir=~/.vim/backups
+set undofile
+set updatetime=300
+set viminfo=!,'100,\"100,:20,<50,s10,h,n~/.viminfo
+set virtualedit=block
+set visualbell
+set whichwrap=b,s,<,>,[,],h,l
+set wildignore=*.o,*.obj,*.rbc,*.class,.svn,test/fixtures/*,vendor/gems/*
+set wildmenu
+set wildmode=list:longest,list:full
+set window=26
+" vim: set ft=vim :

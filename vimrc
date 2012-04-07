@@ -16,12 +16,12 @@ set nobackup
 set noswapfile
 
 "" Loads standard MS-Windows way of CTRL-X, CTRL-C and CTRL-V
-source $VIMRUNTIME/mswin.vim
-behave mswin
+"source $VIMRUNTIME/mswin.vim
+"behave mswin
 
 ""  Set cursor selection mode and prevent entering select mode (prefer visual mode).
-set selection=exclusive
-set selectmode=mouse,key,cmd
+"set selection=exclusive
+"set selectmode=mouse,key,cmd
 
 " set English language
 language messages en_US
@@ -70,7 +70,7 @@ set autochdir
 set vb
 
 "" Set GUI Options and scrollbars
-set guioptions=egmrLtTb
+set guioptions=egmrLtT
 
 "" Remove the 'tear bla bla from menus'
 set guioptions-=t
@@ -88,7 +88,7 @@ if has("gui_macvim")
     "set guifont=Consolas:h14
     "set guifont=Bitstream\ Vera\ Sans\ Mono:h14
     " MacVIM shift+arrow-keys behavior (required in .vimrc)
-    let macvim_hig_shift_movement = 1
+    "let macvim_hig_shift_movement = 1
     " Keep undo history across sessions, by storing in file.
     set undodir=~/.vim/backups
     set undofile
@@ -135,17 +135,17 @@ syntax on
 set background=dark
 "colorscheme ir_black
 "colorscheme desert
-"colorscheme molokai
+colorscheme molokai
 "colorscheme Mustang
-colorscheme solarized
+"colorscheme solarized
 
 ""Minimal number of screen lines to keep above and below the cursor.
 set scrolloff=3
 
 "" set tabstop value and shift width
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=3
+set shiftwidth=3
+set softtabstop=3
 set expandtab
 
 ""setting about indent
@@ -190,7 +190,7 @@ set virtualedit=block
 set sessionoptions=buffers,curdir,folds,help,resize,winpos,winsize,tabpages,unix,slash,localoptions
 
 "" Disable code folding
-set nofoldenable
+"set nofoldenable
 
 "" Set custom filetypes
 autocmd! BufNewFile,BufRead *.pde setlocal ft=arduino
@@ -526,26 +526,26 @@ function! AfterMappings()
     "Move to next word.
 
     "These mappings are used when set selectmode= (Visual Mode).
-    "nnoremap <C-Left> b
-    "vnoremap <C-S-Left> <C-O>b
-    "nnoremap <C-S-Left> gh<C-G>b
-    "inoremap <C-S-Left> <C-\><C-O>gh<C-G>b
+    nnoremap <C-Left> b
+    vnoremap <C-S-Left> <C-O>b
+    nnoremap <C-S-Left> gh<C-G>b
+    inoremap <C-S-Left> <C-\><C-O>gh<C-G>b
 
-    "nnoremap <C-Right> e
-    "vnoremap <C-S-Right> <C-O>e
-    "nnoremap <C-S-Right> gh<C-G>e
-    "inoremap <C-S-Right> <C-\><C-O>gh<C-G>e
+    nnoremap <C-Right> e
+    vnoremap <C-S-Right> <C-O>e
+    nnoremap <C-S-Right> gh<C-G>e
+    inoremap <C-S-Right> <C-\><C-O>gh<C-G>e
     
     " These mappings are used when set selectmode=mouse,key,cmd (Select Mode).
-    nnoremap <C-Left> b
-    vnoremap <C-S-Left> b
-    nnoremap <C-S-Left> gh<C-O>b
-    inoremap <C-S-Left> <C-\><C-O>gh<C-O>b
+    "nnoremap <C-Left> b
+    "vnoremap <C-S-Left> b
+    "nnoremap <C-S-Left> gh<C-O>b
+    "inoremap <C-S-Left> <C-\><C-O>gh<C-O>b
 
-    nnoremap <C-Right> w
-    vnoremap <C-S-Right> w
-    nnoremap <C-S-Right> gh<C-O>w
-    inoremap <C-S-Right> <C-\><C-O>gh<C-O>w
+    "nnoremap <C-Right> w
+    "vnoremap <C-S-Right> w
+    "nnoremap <C-S-Right> gh<C-O>w
+    "inoremap <C-S-Right> <C-\><C-O>gh<C-O>w
 
     " Map NERDComment toggle to work on select-mode
     vmap <leader>c<space> :call NERDComment(1, 'toggle')<CR>
