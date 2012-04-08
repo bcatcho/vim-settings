@@ -70,7 +70,7 @@ set autochdir
 set vb
 
 "" Set GUI Options and scrollbars
-set guioptions=egmrLtT
+set guioptions=egmrLt
 
 "" Remove the 'tear bla bla from menus'
 set guioptions-=t
