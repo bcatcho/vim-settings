@@ -286,17 +286,17 @@ endfunction
 
 "" Indent files. Use plugin when filetype is Javascript.
 function! IndentFile()
-    "if &filetype == 'javascript'
-        "let l = line('.')
-        "let c = col('.')
-        "call g:Jsbeautify()
-        "call cursor(l,c)
-    "else
+    if &filetype == 'javascript'
+        let l = line('.')
+        let c = col('.')
+        call g:Jsbeautify()
+        call cursor(l,c)
+    else
         let l = line('.')
         let c = col('.')
         execute "normal! gg=G"
         call cursor(l,c)
-    "endif
+    endif
 endfunction
 
 " Convenient command to see the difference between the current buffer and the
