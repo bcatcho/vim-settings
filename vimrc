@@ -190,7 +190,7 @@ set virtualedit=block
 set sessionoptions=buffers,curdir,folds,help,resize,winpos,winsize,tabpages,unix,slash,localoptions
 
 "" Disable code folding
-"set nofoldenable
+set foldenable
 
 "" Set custom filetypes
 autocmd! BufNewFile,BufRead *.pde setlocal ft=arduino
@@ -269,6 +269,7 @@ endfunction
 
 au VimEnter * :call LoadSession()
 au VimLeave * :call UpdateSession()
+nnoremap <silent> <leader>ps :call UpdateSession()<CR>
 
 "<home> toggles between start of line and start of text
 imap <khome> <home>
@@ -624,10 +625,10 @@ imap <silent> <F6> <C-O>:set nolist!<CR>
 map <silent> <F11> :call ToggleFullScreen()<CR>
 
 "" Closes buffer but keep window open. Opens clear buffer
-nmap <silent> <C-F4> :Bclose<CR>
-imap <silent> <C-F4> <C-O>:Bclose<CR>
-nmap <silent> <S-F4> :Bclose!<CR>
-imap <silent> <S-F4> <C-O>:Bclose!<CR>
+nmap <silent> <F8> :Bclose<CR>
+imap <silent> <F8> <C-O>:Bclose<CR>
+nmap <silent> <S-F8> :Bclose!<CR>
+imap <silent> <S-F8> <C-O>:Bclose!<CR>
 nmap <C-x> :Bclose<CR>
 imap <C-x> <C-O>:Bclose<CR>
 
