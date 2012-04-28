@@ -303,35 +303,35 @@ endfunction
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
 " Only define it when not defined already.
-set diffexpr=MyDiff()
-function! MyDiff()
-    let opt = '-a --binary '
-    if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
-    if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
-    let arg1 = v:fname_in
-    if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
-    let arg2 = v:fname_new
-    if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
-    let arg3 = v:fname_out
-    if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
-    let eq = ''
-    if $VIMRUNTIME =~ ' '
-        if &sh =~ '\<cmd'
-            let cmd = '""' . $VIMRUNTIME . '\diff"'
-            let eq = '"'
-        else
-            let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
-        endif
-    else
-        let cmd = $VIMRUNTIME . '\diff'
-    endif
-    silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
-endfunction
+"set diffexpr=MyDiff()
+"function! MyDiff()
+"    let opt = '-a --binary '
+"    if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+"    if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+"    let arg1 = v:fname_in
+"    if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+"    let arg2 = v:fname_new
+"    if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+"    let arg3 = v:fname_out
+"    if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+"    let eq = ''
+"    if $VIMRUNTIME =~ ' '
+"        if &sh =~ '\<cmd'
+"            let cmd = '""' . $VIMRUNTIME . '\diff"'
+"            let eq = '"'
+"        else
+"            let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+"        endif
+"    else
+"        let cmd = $VIMRUNTIME . '\diff'
+"    endif
+"    silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
+"endfunction
 
-if !exists(":DiffOrig")
-    command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-                \ | wincmd p | diffthis
-endif
+"if !exists(":DiffOrig")
+"    command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+"                \ | wincmd p | diffthis
+"endif
 
 
 "" Word count functions
@@ -578,6 +578,9 @@ nnoremap <silent> <leader>RR :bufdo call IndentFile()<CR>:let _s=@/<Bar>:%s/\s\+
 "" Remove the Windows ^M - when the encodings gets messed up
 noremap <Leader>mm mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
+
+nnoremap <Leader>co :CoffeeLint!  \| cwindow<CR>
+
 "" Toggle Last used files list
 nnoremap <silent> <leader>m :MRU<CR>
 
@@ -606,8 +609,8 @@ imap <silent> <F1> <esc>:NERDTreeFind<CR>
 nmap <silent> <F1> :NERDTreeFind<CR>
 
 "" List/Next/Previous buffers
-map <silent> <F2> <esc>:BufExplorer<CR>
-imap <silent> <F2> <C-O>:BufExplorer<CR>
+map <silent> <F12> <esc>:BufExplorer<CR>
+imap <silent> <F12> <C-O>:BufExplorer<CR>
 map <silent> <F3> <esc>:bp<CR>
 imap <silent> <F3> <C-O>:bp<CR>
 map <silent> <F4> <esc>:bn<CR>
