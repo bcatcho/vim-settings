@@ -197,8 +197,8 @@ autocmd! BufNewFile,BufRead *.pde setlocal ft=arduino
 autocmd! BufNewFile,BufRead *.ejs set filetype=html.js
 
 "" Define custom indentation for filetypes
-autocmd FileType javascript :setlocal sw=2 ts=2 sts=2
-autocmd FileType coffee :setlocal sw=2 ts=2 sts=2
+autocmd FileType javascript :setlocal sw=2 ts=2 sts=2 | setlocal
+autocmd FileType coffee :setlocal sw=2 ts=2 sts=2 | setlocal fdm=indent
 
 "" Disable AutoClose plugin on markdown files"
 autocmd FileType * :AutoCloseOn
@@ -328,10 +328,10 @@ endfunction
 "    silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 "endfunction
 
-"if !exists(":DiffOrig")
-"    command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-"                \ | wincmd p | diffthis
-"endif
+if !exists(":DiffOrig")
+    command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+                \ | wincmd p | diffthis
+endif
 
 
 "" Word count functions
@@ -580,6 +580,7 @@ noremap <Leader>mm mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 
 nnoremap <Leader>co :CoffeeLint!  \| cwindow<CR>
+vnoremap <silent> <Leader>fc :CoffeeCompile vert<CR><q>
 
 "" Toggle Last used files list
 nnoremap <silent> <leader>m :MRU<CR>
