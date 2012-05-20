@@ -511,7 +511,7 @@ au BufNewFile,BufReadPost *.js let g:ackprg="ack --ignore-dir=node_modules"
 function! AfterMappings()
 
     " CTRL-X and SHIFT-Del are Cut
-    vnoremap <C-X> "+x
+    "vnoremap <C-X> "+x
     vnoremap <S-Del> "+x
 
     " CTRL-C and CTRL-Insert are Copy
@@ -633,8 +633,6 @@ nmap <silent> <F8> :Bclose<CR>
 imap <silent> <F8> <C-O>:Bclose<CR>
 nmap <silent> <S-F8> :Bclose!<CR>
 imap <silent> <S-F8> <C-O>:Bclose!<CR>
-nmap <C-x> :Bclose<CR>
-imap <C-x> <C-O>:Bclose<CR>
 
 "" Closes current window
 nnoremap <M-w> <C-w>c<esc>
@@ -693,3 +691,7 @@ nnoremap <leader>r :%s//<left>
 nnoremap _md :set ft=markdown<CR>
 nnoremap _py :set ft=python
 nnoremap _js :set ft=javascript<CR>
+
+" indentation guides
+let g:indent_guides_color_change_percent=5
+
