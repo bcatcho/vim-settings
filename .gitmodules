@@ -112,3 +112,6 @@
 [submodule "bundle/screen"]
 	path = bundle/screen
 	url = git://github.com/ervandew/screen.git
+[submodule "vim-indent-guides"]
+	path = bundle/vim-indent-guides
+	url = git://github.com/nathanaelkane/vim-indent-guides.git
