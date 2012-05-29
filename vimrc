@@ -561,6 +561,9 @@ map , y/<C-R>"/<cr>
 "" Inserts hard tab in INSERT mode
 inoremap <leader><Tab> <C-V><Tab>
 
+"" keeps the tab level of a blank line
+inoremap <S-Return> <Space><BS><Return>
+
 "" Make enter useful in normal & visual mode (match tags and brackets)
 nmap <C-CR> %
 vmap <C-CR> %
