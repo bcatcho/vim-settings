@@ -61,9 +61,6 @@
 [submodule "bundle/vim-autoclose"]
 	path = bundle/vim-autoclose
 	url = https://github.com/Townk/vim-autoclose.git
-[submodule "bundle/vim-haml"]
-	path = bundle/vim-haml
-	url = https://github.com/Ariba/vim-haml.git
 [submodule "bundle/supertab"]
 	path = bundle/supertab
 	url = https://github.com/ervandew/supertab.git
